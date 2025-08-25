@@ -1,23 +1,37 @@
 #! /bin/sh
 
-pgrep -x sxhkd > /dev/null || sxhkd & disown
-picom --backend xrender & disown
-$HOME/.config/polybar/launch.sh & disown
+pkill picom 
+pkill nm-applet
+pkill blueman-applet
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+pgrep -x sxhkd > /dev/null || sxhkd &
+picom --backend xrender &
+$HOME/.config/polybar/launch.sh &
 
-bspc config border_width         1
-bspc config window_gap          5
+bspc monitor -d I II III IV V VI VII
+
+####### CONFIG DOUBLE MONITOR ########
+
+#bspc monitor eDP1 -d I II III IV V
+#bspc monitor HDMI1 -d VI VII VIII IX X
+
+bspc config border_width         2
+bspc config focused_border_color "#21a1f1"
+bspc config window_gap          20
 
 #bspc config focus_follows_pointer true
 
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 #reglas de lanzamiento para algunas apps
 
 bspc rule -a "pwvucontrol" state=floating rectangle=900x500+0+48
-feh --bg-fill $HOME/Imágenes/lofi/wallpaper.jpg & disown
-nm-applet & disown
+
+#feh --bg-fill $HOME/Imágenes/wallpaper.jgp & disown
+feh --bg-fill $HOME/Imágenes/hollowpaper.jpg & 
+nm-applet &
+blueman-applet &
+

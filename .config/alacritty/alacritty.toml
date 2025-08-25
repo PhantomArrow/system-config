@@ -1,0 +1,15 @@
+general.import = ["./dracula.toml"]
+
+[font]
+normal = {family="FiraCodeNerdFont"}
+size = 9
+
+[window]
+opacity= 0.8
+blur= true
+
+[cursor]
+style = {shape = "Beam",blinking="On"}
+
+[mouse]
+hide_when_typing = true
