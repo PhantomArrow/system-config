@@ -7,6 +7,7 @@ size = 9
 [window]
 opacity= 0.8
 blur= true
+padding = {x=5, y=0}
 
 [cursor]
 style = {shape = "Beam",blinking="On"}
